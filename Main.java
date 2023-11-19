@@ -9,12 +9,12 @@ public class Main {
 
     public static void main(String[] args) {
         int countGame = 0;
-        HashMap<Integer, Integer> result = new HashMap<>(); // сюда будут записывать результаты игры
+        HashMap<Integer, Integer> result = new HashMap<>(); // сюда будут записываться результаты игры
         while (countGame < COUNT_GAME) {
             int prize = random.nextInt(COUNT_DOORS) + 1; // определен номер двери, за которой приз
             int playerChoice = random.nextInt(COUNT_DOORS) + 1; // игрок выбрал дверь, за которой по его мнению приз
             int doorOpen = openDoorAndsecondChoice(prize, playerChoice); // выбираем какую дверь открыть (кроме призовой и кроме той, что выбрал игрок)
-            playerChoice = openDoorAndsecondChoice(playerChoice, doorOpen); // игрок меняет выбор (кроме той, то открыта и кроме той, что выбрал изначально)
+            playerChoice = openDoorAndsecondChoice(playerChoice, doorOpen); // игрок меняет выбор (кроме той, что открыта и кроме той, что выбрал изначально)
             if (prize == playerChoice) {
                 result.put(countGame++, 1); // если номер выбранной двери совпал с призовой, то добавляем в коллекцию единицу
             } else {
